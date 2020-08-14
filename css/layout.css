@@ -1,0 +1,98 @@
+/**
+ * OVERVIEW
+ *
+ * This file handles the layout of the website. Instead of setting up
+ * the components’ layouts one by one, we create a separate system
+ * which has only one goal—telling each element
+ * what size they should be and where they should appear.
+ *
+ * Classes declared here can be invoked on any container
+ * to make them the right size and make them behave the right way.
+ */
+
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * LAYOUT
+ * Elements.................The size rules of containers.
+ * Modifiers..............The rules that modify the layout, e.g., floats.
+ *
+ * GUTTERS
+ * Horizontal gutters....The rules of horizontal whitespace between containers.
+ *
+ * HELPERS
+ * Clearfix...............A class that can be invoked on floated containers.
+ */
+
+
+
+
+
+/*------------------------------------*\
+  #LAYOUT
+\*------------------------------------*/
+
+/**
+ * 1. When we need a vertical gutter between two containers
+ * we use these classes. They scale themselves automatically so that
+ * they skip half of the whitespace between two elements. When two elements
+ * are placed next to each other, an appropriately sized gutter appears
+ * between them automatically. To get the full effect, we need to float
+ * one element to the left, and the other to the right with the right classes.
+ *
+ * 2. If you need to center an element horizontally, use this class.
+ *
+ * 3. If you need to float an element, these classes are your friends.
+ * Don’t forget to invoke the .clearfix class
+ * from the HELPERS section on the container.
+ */
+
+.layout__item--full-width           	{ width: 100%; }
+
+.layout__item--70-percent           	{ width: 70%; }
+
+.layout__item--66-percent-w-gutter  	{ width: calc(66.6% - 1.071rem); } /* [1] */
+
+.layout__item--50-percent-w-gutter  	{ width: calc(50%   - 1.071rem); } /* [1] */
+
+.layout__item--33-percent-w-gutter  	{ width: calc(33.3% - 1.071rem); } /* [1] */
+
+
+.layout__item--content-w-sticked-footer { min-height: calc(100vh - 80px); }
+
+
+.layout__item--centered-horizontally { /* [2] */
+  margin-left:  auto;
+  margin-right: auto;
+}
+
+
+.layout__item--floated-left  { float: left; } /* [3] */
+.layout__item--floated-right { float: right; }/* [3] */
+
+
+
+
+
+/*------------------------------------*\
+  #GUTTERS
+\*------------------------------------*/
+
+.gutter--horizontal-small { margin-bottom: 2.142rem; }
+
+.gutter--horizontal-big   { margin-bottom: 2.857rem; }
+
+
+
+
+
+/*------------------------------------*\
+  #HELPERS
+\*------------------------------------*/
+
+.clearfix:after {
+  content:  "";
+  display:  table;
+  clear:	both;
+}
